@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>デジまかせ｜中小企業向けデジタル支援サービス</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --red:#d71920;
+      --blue:#0057b8;
+      --green:#129447;
+      --orange:#f47b13;
+      --black:#111827;
+    }
+    body{font-family: system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans JP",sans-serif;background:#fff;color:#111827;}
+    .serif{font-family: Georgia,"Times New Roman",serif;}
+    .shadow-strong{box-shadow:0 18px 45px rgba(15,23,42,.16)}
+    .shadow-fire{box-shadow:0 18px 50px rgba(215,25,32,.28)}
+    .plan-card{border-radius:22px;overflow:hidden;background:#fff;border:3px solid #e5e7eb;box-shadow:0 14px 34px rgba(15,23,42,.12)}
+    .badge{box-shadow:0 8px 18px rgba(0,0,0,.18)}
+    .shine{position:relative;overflow:hidden}
+    .shine:after{content:"";position:absolute;inset:-120% -40%;background:linear-gradient(120deg,transparent 35%,rgba(255,255,255,.35),transparent 65%);transform:translateX(-60%) rotate(12deg);animation:shine 4s infinite}
+    @keyframes shine{0%{transform:translateX(-80%) rotate(12deg)}45%,100%{transform:translateX(120%) rotate(12deg)}}
+    .marker{background:linear-gradient(transparent 60%,#fff2a8 60%)}
+    .headline-pop{position:relative;display:inline-block;filter:drop-shadow(0 12px 0 rgba(15,23,42,.08));}
+    .headline-pop:before{content:"";position:absolute;left:-.12em;right:-.12em;bottom:.05em;height:.32em;background:#facc15;z-index:-1;border-radius:999px;transform:rotate(-1deg)}
+    .dot-bg{background-image:radial-gradient(rgba(15,23,42,.12) 1px, transparent 1px);background-size:18px 18px;}
+    .tilt-img{transition:.45s cubic-bezier(.2,.8,.2,1)}
+    .group:hover .tilt-img{transform:scale(1.08) rotate(1deg)}
+    details summary::-webkit-details-marker{display:none}
+    details summary{list-style:none}
+  </style>
+</head>
+<body>
+  <!-- Fixed CTA -->
+  <div class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-t border-slate-200 p-3 md:hidden">
+    <div class="grid grid-cols-2 gap-2">
+      <a href="#plans" class="bg-slate-900 text-white text-center font-black py-3 rounded-xl">料金を見る</a>
+      <a href="#contact" class="bg-red-600 text-white text-center font-black py-3 rounded-xl">無料相談</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-full bg-white border-2 border-slate-900 flex items-center justify-center shadow-sm">
+          <div class="leading-none text-center">
+            <div class="text-red-600 font-black text-lg -mb-1">デジ</div>
+            <div class="text-slate-900 font-black text-xs">まかせ</div>
+          </div>
+        </div>
+        <div>
+          <p class="font-black text-xl tracking-tight">デジまかせ</p>
+          <p class="text-[11px] text-slate-500 font-bold tracking-[.18em]">DIGITAL SUPPORT STUDIO</p>
+        </div>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-bold">
+        <a href="#worries" class="hover:text-red-600">お悩み</a>
+        <a href="#service" class="hover:text-red-600">できること</a>
+        <a href="#works" class="hover:text-red-600">実績</a>
+        <a href="#plans" class="hover:text-red-600">料金</a>
+        <a href="#flow" class="hover:text-red-600">流れ</a>
+      </nav>
+      <a href="#contact" class="hidden md:inline-flex bg-red-600 text-white font-black px-6 py-3 rounded-full shadow-lg hover:scale-105 transition">無料相談する</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-[#f4f4f4]">
+    <div class="max-w-[1600px] mx-auto grid lg:grid-cols-[1.05fr_.95fr] min-h-[92vh]">
+      <div class="relative px-6 md:px-10 lg:px-14 py-8 md:py-12 flex flex-col justify-between overflow-hidden dot-bg">
+        <div class="absolute -bottom-20 -left-20 w-[320px] h-[320px] rounded-full bg-yellow-300"></div>
+        <div class="absolute bottom-0 right-0 w-[220px] h-[220px] rounded-full bg-orange-400"></div>
+        <div class="absolute top-28 left-[58%] w-28 h-28 rounded-full bg-red-500/15 blur-xl"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+          <div>
+            <div class="flex items-center gap-3">
+              <div class="leading-none">
+                <div class="text-red-600 font-black text-4xl md:text-5xl tracking-tight">デジ</div>
+                <div class="text-black font-black text-2xl -mt-2">まかせ</div>
+              </div>
+            </div>
+            <p class="mt-2 text-xs md:text-sm text-slate-600 font-bold leading-relaxed">
+              中小企業向け<br>
+              デジタルサポートサービス
+            </p>
+          </div>
+
+          <div class="flex flex-col md:items-end gap-3">
+            <div class="bg-white shadow-xl rounded-2xl px-6 py-4 border border-slate-200">
+              <div class="flex items-center gap-3 text-slate-900 font-black text-2xl md:text-3xl">
+                <span>📞</span>
+                <span>0120-000-000</span>
+              </div>
+              <p class="text-xs md:text-sm text-slate-500 font-bold mt-1 text-center">全国対応・無料相談受付中</p>
+            </div>
+
+            <a href="#contact" class="shine bg-gradient-to-r from-orange-400 to-red-500 hover:scale-105 transition text-white font-black text-lg md:text-xl px-8 py-5 rounded-full shadow-2xl text-center">
+              無料相談・お見積もり ▶
+            </a>
+          </div>
+        </div>
+
+        <div class="relative z-10 py-10 md:py-16">
+          <div class="inline-block bg-orange-500 text-white font-black px-4 py-2 rounded-2xl text-lg md:text-2xl mb-5 shadow-lg rotate-[-2deg]">
+            初めての企業でも安心
+          </div>
+
+          <h1 class="text-[48px] sm:text-[58px] md:text-[92px] leading-[1.05] tracking-tight font-black text-slate-900">
+            <span class="text-orange-500">月額5万円</span>から<br>
+            導入できる<br>
+            デジタル支援
+          </h1>
+
+          <div class="mt-8 grid grid-cols-2 md:grid-cols-5 gap-3 max-w-5xl">
+            <div class="bg-white rounded-full aspect-square flex flex-col items-center justify-center text-center shadow-lg p-4"><p class="text-yellow-400 text-sm">★★★★★</p><p class="font-black text-lg">対応業種</p><p class="font-black text-2xl">多数</p></div>
+            <div class="bg-white rounded-full aspect-square flex flex-col items-center justify-center text-center shadow-lg p-4"><p class="text-yellow-400 text-sm">★★★★★</p><p class="font-black text-base">若手採用</p><p class="font-black text-xl">強化</p></div>
+            <div class="bg-white rounded-full aspect-square flex flex-col items-center justify-center text-center shadow-lg p-4"><p class="text-yellow-400 text-sm">★★★★★</p><p class="font-black text-base">高品質なのに</p><p class="font-black text-xl">低価格</p></div>
+            <div class="bg-white rounded-full aspect-square flex flex-col items-center justify-center text-center shadow-lg p-4"><p class="text-yellow-400 text-sm">★★★★★</p><p class="font-black text-base">運用サポート</p><p class="font-black text-xl">対応</p></div>
+            <div class="bg-white rounded-full aspect-square flex flex-col items-center justify-center text-center shadow-lg p-4"><p class="text-yellow-400 text-sm">★★★★★</p><p class="font-black text-base">他社からの</p><p class="font-black text-xl">移行OK</p></div>
+          </div>
+
+          <p class="mt-8 text-2xl md:text-3xl font-black text-slate-900 leading-relaxed">
+            HP・SNS・求人導線を活用した<br>
+            <span class="text-orange-500">集客・採用改善</span>もお任せください！
+            <span class="block mt-2 text-lg md:text-2xl text-slate-700">建築・飲食・サロン・物流・地域企業など幅広く対応。</span>
+          </p>
+
+          <div class="mt-10 flex flex-col md:flex-row gap-4 max-w-3xl">
+            <a href="#contact" class="flex-1 bg-teal-500 hover:bg-teal-600 transition text-white text-center font-black text-xl py-6 rounded-full shadow-xl">手軽に無料見積り ▶</a>
+            <a href="#contact" class="flex-1 bg-orange-500 hover:bg-orange-600 transition text-white text-center font-black text-xl py-6 rounded-full shadow-xl">まずは相談してみる ▶</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden lg:grid grid-cols-2 gap-3 p-3 bg-[#dcdcdc]">
+        <div class="overflow-hidden rounded-sm bg-white"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover"></div>
+        <div class="overflow-hidden rounded-sm bg-white"><img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover"></div>
+        <div class="overflow-hidden rounded-sm bg-white"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover"></div>
+        <div class="overflow-hidden rounded-sm bg-white"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover"></div>
+        <div class="overflow-hidden rounded-sm bg-white"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover"></div>
+        <div class="overflow-hidden rounded-sm bg-white"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Worries -->
+  <section id="worries" class="relative py-16 md:py-24 bg-white overflow-hidden">
+    <div class="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-red-500"></div>
+    <div class="absolute -bottom-28 -left-20 w-[420px] h-[420px] rounded-full bg-yellow-300"></div>
+    <div class="absolute -bottom-24 -right-24 w-[360px] h-[360px] rounded-full bg-orange-400"></div>
+    <div class="absolute top-10 right-16 w-28 h-28 rounded-full bg-yellow-200 opacity-70"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4">
+      <div class="text-center mb-10 md:mb-14">
+        <div class="inline-flex items-center gap-3 bg-red-600 text-white font-black tracking-[.35em] text-sm md:text-base mb-4 px-6 py-2 rounded-full shadow-fire">
+          <span class="text-2xl">＼</span> PROBLEM <span class="text-2xl">／</span>
+        </div>
+        <h2 class="text-4xl md:text-7xl font-black leading-tight tracking-tight">
+          こんな<span class="headline-pop text-red-600">お悩み</span><br class="md:hidden">ありませんか？
+        </h2>
+        <p class="mt-5 text-lg md:text-2xl font-black text-slate-900">
+          集客・採用・業務効率化の課題、<span class="text-red-600 marker">デジタルでまとめて解決</span>します！
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div class="relative bg-white rounded-[28px] border border-slate-100 shadow-strong overflow-hidden min-h-[520px] group hover:-translate-y-2 transition duration-300">
+          <div class="absolute top-8 right-7 text-[90px] font-black text-slate-100">01</div>
+          <div class="relative z-10 p-7 md:p-9">
+            <h3 class="text-3xl md:text-4xl font-black leading-tight mb-5">求人が<span class="text-red-600">弱い</span></h3>
+            <div class="h-px bg-slate-200 mb-6"></div>
+            <p class="text-slate-700 font-bold leading-loose">求人票を出しても若い子からの反応が少ない。会社の雰囲気や働く魅力が伝わっていない。</p>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 h-48"><img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=900&auto=format&fit=crop" class="tilt-img w-full h-full object-cover opacity-85" alt="現場イメージ"><div class="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent"></div></div>
+        </div>
+
+        <div class="relative bg-white rounded-[28px] border border-slate-100 shadow-strong overflow-hidden min-h-[520px] group hover:-translate-y-2 transition duration-300">
+          <div class="absolute top-8 right-7 text-[90px] font-black text-slate-100">02</div>
+          <div class="relative z-10 p-7 md:p-9">
+            <h3 class="text-3xl md:text-4xl font-black leading-tight mb-5">SNSが<br><span class="text-red-600">止まっている</span></h3>
+            <div class="h-px bg-slate-200 mb-6"></div>
+            <p class="text-slate-700 font-bold leading-loose">Instagramを作ったけど投稿できていない。何を投稿したらいいか分からない。</p>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 h-48"><img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?q=80&w=900&auto=format&fit=crop" class="tilt-img w-full h-full object-cover opacity-85" alt="SNSイメージ"><div class="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent"></div></div>
+          <div class="absolute bottom-28 left-8 bg-red-500 text-white rounded-full px-4 py-2 font-black shadow-lg rotate-[-8deg]">いいね不足…</div>
+          <div class="absolute bottom-20 right-8 bg-white text-red-600 rounded-full px-4 py-2 font-black shadow-lg rotate-[8deg]">発信停止</div>
+        </div>
+
+        <div class="relative bg-white rounded-[28px] border border-slate-100 shadow-strong overflow-hidden min-h-[520px] group hover:-translate-y-2 transition duration-300">
+          <div class="absolute top-8 right-7 text-[90px] font-black text-slate-100">03</div>
+          <div class="relative z-10 p-7 md:p-9">
+            <h3 class="text-3xl md:text-4xl font-black leading-tight mb-5">HPが<span class="text-red-600">ない</span><br>古い</h3>
+            <div class="h-px bg-slate-200 mb-6"></div>
+            <p class="text-slate-700 font-bold leading-loose">会社名を検索されても情報が少なく、信用感・採用力・問い合わせ導線で損している。</p>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 h-48"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=900&auto=format&fit=crop" class="tilt-img w-full h-full object-cover opacity-85" alt="ホームページイメージ"><div class="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent"></div></div>
+        </div>
+      </div>
+
+      <div class="relative mt-10 md:mt-14 bg-white rounded-[36px] shadow-strong px-6 md:px-12 py-8 md:py-10 flex flex-col lg:flex-row items-center justify-center gap-6 overflow-hidden">
+        <div class="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-r from-red-500 via-orange-400 to-yellow-300"></div>
+        <div class="bg-slate-900 text-white rounded-full px-6 py-2 font-black text-sm md:text-base">そのお悩み、まとめて</div>
+        <div class="text-center lg:text-left leading-none"><div class="text-red-600 font-black text-5xl md:text-7xl tracking-tight">デジ</div><div class="text-black font-black text-3xl md:text-5xl -mt-2">まかせ</div></div>
+        <p class="text-3xl md:text-5xl font-black">が<span class="text-orange-500">解決</span>します！</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service -->
+  <section id="service" class="relative py-16 md:py-24 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+    <div class="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-yellow-200 opacity-70"></div>
+    <div class="absolute bottom-0 left-0 w-full h-40 bg-slate-950"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4">
+      <div class="text-center mb-10 md:mb-14">
+        <div class="inline-flex items-center gap-3 bg-slate-950 text-white font-black tracking-[.35em] text-sm md:text-base mb-4 px-6 py-2 rounded-full shadow-xl">
+          <span class="text-2xl text-yellow-300">＼</span> SERVICE <span class="text-2xl text-yellow-300">／</span>
+        </div>
+        <h2 class="text-4xl md:text-7xl font-black leading-tight tracking-tight"><span class="headline-pop">デジまかせ</span>でできること</h2>
+        <p class="mt-5 text-lg md:text-2xl font-black text-slate-900">目的は「見栄え」だけではなく、<span class="text-red-600 marker">集客・採用・信用につながるデジタル整備</span>です。</p>
+      </div>
+
+      <div class="grid md:grid-cols-5 gap-5 mb-10 md:mb-14">
+        <div class="relative overflow-hidden rounded-[28px] bg-slate-950 text-white min-h-[310px] shadow-strong group hover:-translate-y-2 transition duration-300"><div class="absolute top-3 right-4 text-7xl font-black text-white/5">01</div><div class="p-6 relative z-10"><h3 class="text-2xl font-black leading-tight">HP作成〜<br>管理運用</h3><p class="mt-4 text-sm font-bold text-white/80 leading-relaxed">見やすく、信頼されるホームページを制作し更新までお任せ！</p></div><img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=900&auto=format&fit=crop" class="absolute bottom-0 left-0 w-full h-32 object-cover opacity-80 group-hover:scale-110 transition duration-500" alt="HP制作"></div>
+        <div class="relative overflow-hidden rounded-[28px] bg-red-600 text-white min-h-[310px] shadow-strong group hover:-translate-y-2 transition duration-300"><div class="absolute top-3 right-4 text-7xl font-black text-white/10">02</div><div class="p-6 relative z-10"><h3 class="text-2xl font-black leading-tight">SNS運用〜<br>動画制作</h3><p class="mt-4 text-sm font-bold text-white/90 leading-relaxed">Instagram運用やショート動画で集客・求人を強化！</p></div><img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=900&auto=format&fit=crop" class="absolute bottom-0 left-0 w-full h-32 object-cover opacity-80 group-hover:scale-110 transition duration-500" alt="動画制作"></div>
+        <div class="relative overflow-hidden rounded-[28px] bg-blue-600 text-white min-h-[310px] shadow-strong group hover:-translate-y-2 transition duration-300"><div class="absolute top-3 right-4 text-7xl font-black text-white/10">03</div><div class="p-6 relative z-10"><h3 class="text-2xl font-black leading-tight">求人導線<br>設計</h3><p class="mt-4 text-sm font-bold text-white/90 leading-relaxed">応募が集まる導線設計で採用ミスマッチを減らし定着率UP！</p></div><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=900&auto=format&fit=crop" class="absolute bottom-0 left-0 w-full h-32 object-cover opacity-80 group-hover:scale-110 transition duration-500" alt="求人導線"></div>
+        <div class="relative overflow-hidden rounded-[28px] bg-green-600 text-white min-h-[310px] shadow-strong group hover:-translate-y-2 transition duration-300"><div class="absolute top-3 right-4 text-7xl font-black text-white/10">04</div><div class="p-6 relative z-10"><h3 class="text-2xl font-black leading-tight">マーケティング<br>戦略</h3><p class="mt-4 text-sm font-bold text-white/90 leading-relaxed">市場調査・分析から成果につながる説明を提案！</p></div><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=900&auto=format&fit=crop" class="absolute bottom-0 left-0 w-full h-32 object-cover opacity-80 group-hover:scale-110 transition duration-500" alt="マーケティング"></div>
+        <div class="relative overflow-hidden rounded-[28px] bg-orange-500 text-white min-h-[310px] shadow-strong group hover:-translate-y-2 transition duration-300"><div class="absolute top-3 right-4 text-7xl font-black text-white/10">05</div><div class="p-6 relative z-10"><h3 class="text-2xl font-black leading-tight">DX化〜<br>AI導入設計</h3><p class="mt-4 text-sm font-bold text-white/90 leading-relaxed">業務効率化や自動化をAIでサポートし生産性を最大化！</p></div><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=900&auto=format&fit=crop" class="absolute bottom-0 left-0 w-full h-32 object-cover opacity-80 group-hover:scale-110 transition duration-500" alt="AI導入"></div>
+      </div>
+
+      <div class="relative bg-white rounded-[36px] shadow-strong overflow-hidden p-6 md:p-10 border border-slate-100">
+        <div class="grid lg:grid-cols-[.9fr_1.2fr_.9fr] gap-8 items-center">
+          <div class="hidden lg:block relative h-full min-h-[300px]"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=900&auto=format&fit=crop" class="absolute left-0 top-6 w-56 h-72 object-cover rounded-3xl shadow-xl rotate-[-8deg]" alt="資料制作"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=900&auto=format&fit=crop" class="absolute right-0 bottom-0 w-52 h-44 object-cover rounded-3xl shadow-xl rotate-[7deg]" alt="打ち合わせ"></div>
+          <div class="text-center">
+            <div class="inline-flex bg-slate-900 text-white rounded-full px-6 py-2 font-black mb-4">その他</div>
+            <h3 class="text-4xl md:text-6xl font-black leading-tight">デジタル面のサポート<br><span class="text-orange-500">すべて担当！</span></h3>
+            <div class="grid sm:grid-cols-2 gap-3 mt-8 text-left max-w-2xl mx-auto font-bold text-slate-800">
+              <p>☑ チラシ・パンフレット・名刺デザイン</p><p>☑ 店内POP・メニュー表の作成</p><p>☑ 写真素材・投稿素材の制作</p><p>☑ MEO対策・Googleビジネス運用</p><p>☑ 各種ツール・システム連携サポート</p><p>☑ アクセス解析・改善提案</p><p>☑ 予約・LINE・問い合わせ導線づくり</p><p>☑ 業務効率化の仕組み構築</p>
+            </div>
+            <div class="mt-8 bg-yellow-300 text-slate-950 font-black text-xl md:text-2xl rounded-2xl py-4 px-6 shadow-lg">デジタルのこと、全部「デジまかせ」でOK！</div>
+          </div>
+          <div class="hidden lg:block relative h-full min-h-[300px]"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=900&auto=format&fit=crop" class="absolute right-0 top-0 w-60 h-44 object-cover rounded-3xl shadow-xl rotate-[6deg]" alt="PC作業"><img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?q=80&w=900&auto=format&fit=crop" class="absolute left-0 bottom-0 w-52 h-64 object-cover rounded-3xl shadow-xl rotate-[-6deg]" alt="撮影機材"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Works -->
+  <section id="works" class="relative py-20 md:py-28 bg-white overflow-hidden">
+    <div class="absolute inset-0 dot-bg opacity-70"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <div class="inline-flex bg-red-600 text-white px-6 py-2 rounded-full font-black tracking-[.25em] shadow-fire mb-5">WORKS / RESULT</div>
+        <h2 class="text-4xl md:text-7xl font-black leading-tight"><span class="headline-pop text-red-600">実績イメージ</span>も<br class="md:hidden">しっかり見せる</h2>
+        <p class="mt-5 text-lg md:text-2xl font-black text-slate-700">「何をしてくれる会社なのか」が一目で伝わるように、成果・制作物・導線をセットで見せます。</p>
+      </div>
+      <div class="grid lg:grid-cols-3 gap-6">
+        <article class="group bg-white rounded-[34px] overflow-hidden shadow-strong border border-slate-100 hover:-translate-y-2 transition duration-300">
+          <div class="h-60 overflow-hidden"><img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=1200&auto=format&fit=crop" class="tilt-img w-full h-full object-cover" alt="HP改善"></div>
+          <div class="p-7"><div class="inline-flex bg-blue-100 text-blue-700 rounded-full px-4 py-1 font-black text-sm mb-4">HP / 求人導線</div><h3 class="text-2xl font-black leading-tight">会社の信頼感を高める<br>採用ページ整備</h3><p class="mt-4 text-slate-600 font-bold leading-relaxed">スマホで見た時に、会社の雰囲気・仕事内容・応募導線がすぐ分かる構成へ。</p></div>
+        </article>
+        <article class="group bg-white rounded-[34px] overflow-hidden shadow-strong border border-slate-100 hover:-translate-y-2 transition duration-300">
+          <div class="h-60 overflow-hidden"><img src="https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?q=80&w=1200&auto=format&fit=crop" class="tilt-img w-full h-full object-cover" alt="SNS改善"></div>
+          <div class="p-7"><div class="inline-flex bg-red-100 text-red-700 rounded-full px-4 py-1 font-black text-sm mb-4">SNS / 投稿設計</div><h3 class="text-2xl font-black leading-tight">止まっていたSNSを<br>問い合わせ導線へ</h3><p class="mt-4 text-slate-600 font-bold leading-relaxed">投稿テーマ・画像素材・プロフィール導線まで整え、見込み客に伝わる形へ。</p></div>
+        </article>
+        <article class="group bg-white rounded-[34px] overflow-hidden shadow-strong border border-slate-100 hover:-translate-y-2 transition duration-300">
+          <div class="h-60 overflow-hidden"><img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?q=80&w=1200&auto=format&fit=crop" class="tilt-img w-full h-full object-cover" alt="資料制作"></div>
+          <div class="p-7"><div class="inline-flex bg-orange-100 text-orange-700 rounded-full px-4 py-1 font-black text-sm mb-4">POP / 紙媒体</div><h3 class="text-2xl font-black leading-tight">店内POP・チラシも<br>まとめて作成</h3><p class="mt-4 text-slate-600 font-bold leading-relaxed">店舗や営業現場で使う細かい制作物まで対応し、現場の手間を削減。</p></div>
+        </article>
+      </div>
+
+      <div class="mt-10 grid md:grid-cols-4 gap-4">
+        <div class="bg-slate-950 text-white rounded-3xl p-6 shadow-xl"><p class="text-4xl font-black text-yellow-300">01</p><p class="mt-3 font-black text-lg">ホームページ制作</p><p class="text-white/70 text-sm mt-2">会社紹介・採用・問い合わせ導線</p></div>
+        <div class="bg-red-600 text-white rounded-3xl p-6 shadow-xl"><p class="text-4xl font-black text-yellow-300">02</p><p class="mt-3 font-black text-lg">SNS運用改善</p><p class="text-white/80 text-sm mt-2">投稿設計・画像制作・動画提案</p></div>
+        <div class="bg-blue-600 text-white rounded-3xl p-6 shadow-xl"><p class="text-4xl font-black text-yellow-300">03</p><p class="mt-3 font-black text-lg">求人応募導線</p><p class="text-white/80 text-sm mt-2">若手に伝わる見せ方を設計</p></div>
+        <div class="bg-orange-500 text-white rounded-3xl p-6 shadow-xl"><p class="text-4xl font-black text-yellow-300">04</p><p class="mt-3 font-black text-lg">POP・資料制作</p><p class="text-white/80 text-sm mt-2">営業資料・店内POP・チラシ</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plans -->
+  <section id="plans" class="py-16 md:py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-14 relative">
+        <div class="absolute inset-0 blur-3xl opacity-20 bg-gradient-to-r from-red-500 via-orange-400 to-yellow-300"></div>
+        <div class="relative z-10">
+          <div class="inline-flex items-center gap-3 bg-red-600 text-white px-6 py-2 rounded-full font-black tracking-[.25em] shadow-xl mb-5"><span>🔥</span> PRICE PLAN <span>🔥</span></div>
+          <h2 class="text-4xl md:text-7xl font-black mt-3 leading-tight tracking-tight">状況に合わせて選べる<br><span class="headline-pop text-red-600">最強の4プラン</span></h2>
+          <p class="mt-5 text-lg md:text-2xl font-black text-slate-700">集客・採用・信頼感UPを全部まとめてサポート！</p>
+        </div>
+      </div>
+      <div class="grid lg:grid-cols-4 gap-6">
+        <article class="plan-card border-red-600"><div class="bg-red-600 text-white p-4 font-black text-2xl flex items-center gap-3"><span class="bg-white text-red-600 rounded-xl px-3 py-1">1</span>デジまかせMAX</div><div class="p-6"><p class="bg-red-100 text-red-700 text-center rounded-full py-2 font-black mb-5">すべて任せたい方に！最上位プラン</p><p class="text-center font-black mb-5"><span class="text-lg">月額</span><span class="text-5xl text-red-600 mx-1">150,000</span>円</p><ul class="space-y-3 font-bold"><li>✓ HP作成〜管理運用</li><li>✓ SNS運用〜動画制作</li><li>✓ 求人導線設計</li><li>✓ マーケティング戦略</li><li>✓ DX化〜AI導入設計</li></ul><div class="mt-6 bg-red-600 text-white text-center rounded-2xl p-4 font-black">事業成長を最大化する<br>フルサポート！</div></div></article>
+        <article class="plan-card border-blue-600 relative"><div class="absolute -top-3 -right-3 badge bg-yellow-300 text-slate-900 rounded-full w-24 h-24 flex items-center justify-center text-center font-black rotate-12">一番<br>人気！</div><div class="bg-blue-600 text-white p-4 font-black text-2xl flex items-center gap-3"><span class="bg-white text-blue-600 rounded-xl px-3 py-1">2</span>デジまかせ</div><div class="p-6"><p class="bg-blue-100 text-blue-700 text-center rounded-full py-2 font-black mb-5">バランス重視の充実プラン</p><p class="text-center font-black mb-5"><span class="text-lg">月額</span><span class="text-5xl text-blue-600 mx-1">100,000</span>円</p><ul class="space-y-3 font-bold"><li>✓ HP作成〜管理運用</li><li>✓ SNS運用〜動画制作</li><li>✓ 求人導線設計</li><li>✓ マーケティング戦略</li></ul><div class="mt-6 bg-blue-50 text-blue-900 text-center rounded-2xl p-4 font-black">集客・採用を強化したい方に<br>おすすめの人気プラン！</div></div></article>
+        <article class="plan-card border-green-600"><div class="bg-green-600 text-white p-4 font-black text-2xl flex items-center gap-3"><span class="bg-white text-green-600 rounded-xl px-3 py-1">3</span>デジまかせライト</div><div class="p-6"><p class="bg-green-100 text-green-700 text-center rounded-full py-2 font-black mb-5">まずは始めたい方に！</p><p class="text-center font-black mb-5"><span class="text-lg">月額</span><span class="text-5xl text-green-600 mx-1">50,000</span>円</p><ul class="space-y-3 font-bold"><li>✓ HP作成〜管理運用</li><li>✓ SNS戦略〜改善提案</li><li>✓ 求人導線設計</li></ul><div class="mt-6 bg-green-50 text-green-900 text-center rounded-2xl p-4 font-black">コストを抑えて、<br>効果的にスタート！</div></div></article>
+        <article class="plan-card border-orange-500"><div class="bg-orange-500 text-white p-4 font-black text-2xl flex items-center gap-3"><span class="bg-white text-orange-500 rounded-xl px-3 py-1">4</span>あんしんサポート</div><div class="p-6"><p class="bg-orange-100 text-orange-700 text-center rounded-full py-2 font-black mb-5">困ったときの心強い味方！</p><p class="text-center font-black mb-5"><span class="text-lg">月額+</span><span class="text-5xl text-orange-500 mx-1">10,000</span>円</p><ul class="space-y-3 font-bold"><li>✓ SNS作成したい…</li><li>✓ チラシどうしよう…</li><li>✓ 名刺はどうやって？</li><li>✓ メールが消えた…</li><li>✓ デジタル相談全般</li></ul><div class="mt-6 bg-orange-500 text-white text-center rounded-2xl p-4 font-black">電話対応可能で解決！</div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="relative py-20 md:py-28 bg-slate-950 text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_15%_20%,#ef4444,transparent_22%),radial-gradient(circle_at_85%_15%,#f59e0b,transparent_24%),radial-gradient(circle_at_50%_90%,#2563eb,transparent_25%)]"></div>
+    <div class="absolute -top-20 -left-20 w-80 h-80 bg-red-600/40 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-yellow-300/30 rounded-full blur-3xl"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-3 bg-yellow-300 text-slate-950 px-7 py-3 rounded-full font-black tracking-[.25em] shadow-xl mb-6 rotate-[-1deg]">COMPARE / 比較</div>
+        <h2 class="text-5xl md:text-8xl font-black mt-4 tracking-tight leading-[1.02]">
+          自分でやるより、<br>
+          <span class="text-yellow-300 drop-shadow-[0_0_22px_rgba(250,204,21,.35)]">圧倒的にラクで速い。</span>
+        </h2>
+        <p class="mt-6 text-lg md:text-2xl font-black text-white/85">HP・SNS・求人・相談先をバラバラに探す手間を、デジまかせがまとめます。</p>
+      </div>
+
+      <div class="grid lg:grid-cols-[.9fr_1.3fr] gap-8 items-stretch">
+        <div class="bg-white/10 border border-white/15 rounded-[36px] p-7 md:p-9 shadow-strong backdrop-blur">
+          <p class="text-yellow-300 font-black text-xl mb-4">よくある状態</p>
+          <div class="space-y-4 font-black text-lg">
+            <div class="bg-white/10 rounded-2xl p-5">HPはあるけど古い</div>
+            <div class="bg-white/10 rounded-2xl p-5">SNSは作っただけ</div>
+            <div class="bg-white/10 rounded-2xl p-5">求人は求人票頼み</div>
+            <div class="bg-white/10 rounded-2xl p-5">困った時の相談先がない</div>
+          </div>
+          <div class="mt-6 bg-red-600 text-white text-center rounded-3xl p-5 font-black text-2xl shadow-fire">結果、全部止まりがち。</div>
+        </div>
+
+        <div class="overflow-x-auto bg-white text-slate-900 rounded-[36px] p-4 md:p-6 shadow-strong border-4 border-yellow-300">
+          <table class="w-full min-w-[820px] text-center border-collapse">
+            <thead>
+              <tr>
+                <th class="p-5 text-left bg-slate-100 rounded-l-2xl">項目</th>
+                <th class="p-5 bg-slate-100">自社対応</th>
+                <th class="p-5 bg-slate-100">一般制作会社</th>
+                <th class="p-5 bg-red-600 text-white rounded-r-2xl">デジまかせ</th>
+              </tr>
+            </thead>
+            <tbody class="font-bold text-lg">
+              <tr class="border-b"><td class="p-5 text-left font-black">HP制作</td><td>△ 時間がかかる</td><td>○ 制作中心</td><td class="text-red-600 text-2xl font-black">◎ 作成〜運用</td></tr>
+              <tr class="border-b"><td class="p-5 text-left font-black">SNS運用</td><td>△ 続かない</td><td>△ 別料金が多い</td><td class="text-red-600 text-2xl font-black">◎ 投稿設計まで</td></tr>
+              <tr class="border-b"><td class="p-5 text-left font-black">求人導線</td><td>△ 求人票頼み</td><td>△ 弱い場合あり</td><td class="text-red-600 text-2xl font-black">◎ 見せ方から改善</td></tr>
+              <tr><td class="p-5 text-left font-black">細かい相談</td><td>× 相談先がない</td><td>△ 範囲外が多い</td><td class="text-red-600 text-2xl font-black">◎ まとめて対応</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Strength -->
+  <section class="relative py-20 md:py-28 bg-white overflow-hidden">
+    <div class="absolute top-0 left-0 w-96 h-96 rounded-full bg-red-100 blur-3xl opacity-80"></div>
+    <div class="absolute bottom-0 right-0 w-[460px] h-[460px] rounded-full bg-yellow-100 blur-3xl opacity-80"></div>
+    <div class="absolute inset-0 dot-bg opacity-60"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4">
+      <div class="grid lg:grid-cols-[1fr_1.1fr] gap-12 items-center">
+        <div>
+          <div class="inline-flex bg-red-600 text-white px-6 py-2 rounded-full font-black tracking-[.25em] shadow-fire mb-5">WHY / 選ばれる理由</div>
+          <h2 class="text-5xl md:text-8xl font-black mt-4 leading-[1.05] tracking-tight">
+            今の時代、<br>
+            <span class="headline-pop text-red-600">“見せ方”</span>で<br>
+            会社の印象は変わる。
+          </h2>
+          <p class="mt-7 text-slate-700 leading-loose font-bold text-lg">若い世代や新規取引先は、まずInstagram・HP・Google検索などを見て会社を判断しています。だからこそ、会社の雰囲気・信頼感・強み・働きやすさをきちんと見せることが重要です。</p>
+          <div class="mt-7 grid grid-cols-3 gap-3">
+            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=600&auto=format&fit=crop" class="h-32 w-full object-cover rounded-3xl shadow-xl rotate-[-3deg]" alt="打ち合わせ">
+            <img src="https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?q=80&w=600&auto=format&fit=crop" class="h-32 w-full object-cover rounded-3xl shadow-xl translate-y-5" alt="SNS">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" class="h-32 w-full object-cover rounded-3xl shadow-xl rotate-[3deg]" alt="分析">
+          </div>
+        </div>
+        <div class="grid gap-5">
+          <div class="relative overflow-hidden p-8 bg-slate-950 text-white rounded-[34px] shadow-strong hover:-translate-y-2 transition duration-300">
+            <div class="absolute right-5 top-3 text-7xl font-black text-white/10">01</div>
+            <h3 class="font-black text-3xl mb-3 text-yellow-300">若手採用・集客に強い見せ方</h3>
+            <p class="text-white/80 font-bold leading-relaxed">会社の雰囲気・強み・信頼感を分かりやすく伝える設計。</p>
+          </div>
+          <div class="relative overflow-hidden p-8 bg-red-600 text-white rounded-[34px] shadow-fire hover:-translate-y-2 transition duration-300">
+            <div class="absolute right-5 top-3 text-7xl font-black text-white/15">02</div>
+            <h3 class="font-black text-3xl mb-3">HPで信頼感を作る</h3>
+            <p class="text-white/90 font-bold leading-relaxed">検索されたときに、“ちゃんとしている会社”に見えるページを整備。</p>
+          </div>
+          <div class="relative overflow-hidden p-8 bg-yellow-300 text-slate-950 rounded-[34px] shadow-xl hover:-translate-y-2 transition duration-300">
+            <div class="absolute right-5 top-3 text-7xl font-black text-slate-900/10">03</div>
+            <h3 class="font-black text-3xl mb-3">SNSを売上・求人導線へ</h3>
+            <p class="text-slate-800 font-bold leading-relaxed">投稿だけで終わらせず、問い合わせ・応募・売上につながる流れを作ります。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flow -->
+  <section id="flow" class="relative py-20 md:py-28 bg-gradient-to-b from-white to-slate-50 overflow-hidden">
+    <div class="absolute -top-20 right-0 w-96 h-96 bg-yellow-200 rounded-full blur-3xl opacity-60"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-red-100 rounded-full blur-3xl opacity-60"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4">
+      <div class="text-center mb-14">
+        <div class="inline-flex bg-slate-950 text-white px-7 py-3 rounded-full font-black tracking-[.25em] shadow-xl mb-5">FLOW / 開始までの流れ</div>
+        <h2 class="text-4xl md:text-7xl font-black mt-3 leading-tight">相談から運用開始まで<br><span class="headline-pop text-red-600">分かりやすく進行</span></h2>
+        <p class="mt-5 text-lg md:text-2xl font-black text-slate-700">何をすればいいか分からない状態でも、こちらで整理して進めます。</p>
+      </div>
+
+      <div class="grid lg:grid-cols-4 gap-6">
+        <div class="group relative bg-white rounded-[34px] overflow-hidden shadow-strong border border-slate-100 hover:-translate-y-2 transition duration-300">
+          <div class="h-44 overflow-hidden"><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=900&auto=format&fit=crop" class="tilt-img w-full h-full object-cover" alt="無料相談"></div>
+          <div class="p-7"><div class="inline-flex bg-red-600 text-white rounded-full px-4 py-1 font-black mb-4">STEP 01</div><h3 class="font-black text-2xl">無料相談</h3><p class="text-slate-600 mt-3 font-bold leading-relaxed">現在のHP・SNS・求人・集客状況を確認。困っていることを整理します。</p></div>
+        </div>
+        <div class="group relative bg-white rounded-[34px] overflow-hidden shadow-strong border border-slate-100 hover:-translate-y-2 transition duration-300">
+          <div class="h-44 overflow-hidden"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=900&auto=format&fit=crop" class="tilt-img w-full h-full object-cover" alt="改善提案"></div>
+          <div class="p-7"><div class="inline-flex bg-blue-600 text-white rounded-full px-4 py-1 font-black mb-4">STEP 02</div><h3 class="font-black text-2xl">課題整理・改善提案</h3><p class="text-slate-600 mt-3 font-bold leading-relaxed">必要な施策を優先順位づけ。HP、SNS、求人導線の改善案を出します。</p></div>
+        </div>
+        <div class="group relative bg-white rounded-[34px] overflow-hidden shadow-strong border border-slate-100 hover:-translate-y-2 transition duration-300">
+          <div class="h-44 overflow-hidden"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=900&auto=format&fit=crop" class="tilt-img w-full h-full object-cover" alt="プラン決定"></div>
+          <div class="p-7"><div class="inline-flex bg-green-600 text-white rounded-full px-4 py-1 font-black mb-4">STEP 03</div><h3 class="font-black text-2xl">プラン決定</h3><p class="text-slate-600 mt-3 font-bold leading-relaxed">予算・目的・対応範囲に合わせて、無理のないプランを決めます。</p></div>
+        </div>
+        <div class="group relative bg-white rounded-[34px] overflow-hidden shadow-strong border border-slate-100 hover:-translate-y-2 transition duration-300">
+          <div class="h-44 overflow-hidden"><img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=900&auto=format&fit=crop" class="tilt-img w-full h-full object-cover" alt="運用開始"></div>
+          <div class="p-7"><div class="inline-flex bg-orange-500 text-white rounded-full px-4 py-1 font-black mb-4">STEP 04</div><h3 class="font-black text-2xl">制作・運用開始</h3><p class="text-slate-600 mt-3 font-bold leading-relaxed">制作、投稿設計、修正、改善提案まで継続的にサポートします。</p></div>
+        </div>
+      </div>
+
+      <div class="mt-10 bg-slate-950 text-white rounded-[36px] p-7 md:p-10 shadow-strong grid md:grid-cols-[.8fr_1.2fr] gap-6 items-center">
+        <h3 class="text-3xl md:text-5xl font-black leading-tight"><span class="text-yellow-300">丸投げOK。</span><br>必要な情報だけ一緒に整理します。</h3>
+        <p class="font-bold text-white/80 leading-loose">写真がない、文章がない、何から始めればいいか分からない場合でも大丈夫です。ヒアリングしながら、御社に必要な見せ方・導線・制作物を一緒に固めていきます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="relative py-20 md:py-28 bg-slate-50 overflow-hidden">
+    <div class="absolute -top-24 left-0 w-80 h-80 bg-red-100 rounded-full blur-3xl opacity-60"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-yellow-100 rounded-full blur-3xl opacity-60"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4">
+      <div class="text-center mb-10"><p class="text-red-600 font-black tracking-[.2em]">FAQ</p><h2 class="text-5xl md:text-7xl font-black mt-4 tracking-tight">不安・疑問を<br><span class="headline-pop text-red-600">全部解決。</span></h2><p class="mt-5 text-lg md:text-2xl font-bold text-slate-700">よくある質問をまとめました。これ以外の質問もお気軽にどうぞ！</p></div>
+      n class="headline-pop text-red-600">全部解決。</span></h2>
+      </div>
+
+      <div class="space-y-4">
+        <details class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+          <summary class="font-black cursor-pointer flex items-center justify-between gap-4">
+            <span>HPがまだ無くても大丈夫ですか？</span>
+            <span class="text-red-600 text-2xl">＋</span>
+          </summary>
+          <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+            はい、大丈夫です。会社情報・写真・求人内容などを一緒に整理しながら、必要なページ構成から作成します。
+          </p>
+        </details>
+
+        <details class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+          <summary class="font-black cursor-pointer flex items-center justify-between gap-4">
+            <span>Instagramの投稿内容も考えてもらえますか？</span>
+            <span class="text-red-600 text-2xl">＋</span>
+          </summary>
+          <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+            はい。採用・信頼・問い合わせにつながる投稿テーマ、文章、画像構成、プロフィール導線までご提案します。
+          </p>
+        </details>
+
+        <details class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+          <summary class="font-black cursor-pointer flex items-center justify-between gap-4">
+            <span>建築業以外でも依頼できますか？</span>
+            <span class="text-red-600 text-2xl">＋</span>
+          </summary>
+          <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+            可能です。飲食店、サロン、物流企業、地域企業、個人店舗など、幅広い業種に対応できます。
+          </p>
+        </details>
+
+        <details class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+          <summary class="font-black cursor-pointer flex items-center justify-between gap-4">
+            <span>店内POPやチラシも作成できますか？</span>
+            <span class="text-red-600 text-2xl">＋</span>
+          </summary>
+          <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+            可能です。店内POP、チラシ、メニュー表、名刺、営業資料、求人チラシなど、細かい制作物も対応しています。
+          </p>
+        </details>
+
+        <details class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+          <summary class="font-black cursor-pointer flex items-center justify-between gap-4">
+            <span>GoogleマップやMEO対策も相談できますか？</span>
+            <span class="text-red-600 text-2xl">＋</span>
+          </summary>
+          <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+            はい。Googleビジネスプロフィールの整備、写真追加、説明文改善、口コミ導線などもサポートできます。
+          </p>
+        </details>
+
+        <details class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+          <summary class="font-black cursor-pointer flex items-center justify-between gap-4">
+            <span>パソコンが苦手でも大丈夫ですか？</span>
+            <span class="text-red-600 text-2xl">＋</span>
+          </summary>
+          <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+            問題ありません。専門用語をなるべく使わず、必要な部分だけ分かりやすく確認しながら進めます。
+          </p>
+        </details>
+
+        <details class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+          <summary class="font-black cursor-pointer flex items-center justify-between gap-4">
+            <span>既存のホームページ修正だけでも依頼できますか？</span>
+            <span class="text-red-600 text-2xl">＋</span>
+          </summary>
+          <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+            可能です。文字修正、画像差し替え、スマホ表示改善、問い合わせ導線の追加など、部分的な修正も対応します。
+          </p>
+        </details>
+
+        <details class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+          <summary class="font-black cursor-pointer flex items-center justify-between gap-4">
+            <span>LINE導線や予約導線も作れますか？</span>
+            <span class="text-red-600 text-2xl">＋</span>
+          </summary>
+          <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+            はい。LINE追加、予約ページ、問い合わせフォーム、電話ボタンなど、目的に合わせた導線設計が可能です。
+          </p>
+        </details>
+
+        <details class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+          <summary class="font-black cursor-pointer flex items-center justify-between gap-4">
+            <span>写真や素材がなくても進められますか？</span>
+            <span class="text-red-600 text-2xl">＋</span>
+          </summary>
+          <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+            可能です。既存写真の整理、必要な写真の撮影指示、素材選定、画像加工までサポートします。
+          </p>
+        </details>
+
+        <details class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+          <summary class="font-black cursor-pointer flex items-center justify-between gap-4">
+            <span>求人用の文章や会社紹介文も作れますか？</span>
+            <span class="text-red-600 text-2xl">＋</span>
+          </summary>
+          <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+            はい。会社の強み、働く魅力、仕事内容、応募者に伝わりやすい文章まで作成できます。
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommend -->
+  <section class="relative py-20 md:py-28 bg-white overflow-hidden">
+    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-yellow-200 blur-3xl opacity-70"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-red-100 blur-3xl opacity-70"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <div class="inline-flex bg-slate-950 text-white px-7 py-3 rounded-full font-black tracking-[.25em] shadow-xl mb-5">
+          RECOMMEND
+        </div>
+        <h2 class="text-4xl md:text-7xl font-black leading-tight">
+          こんな会社に<br>
+          <span class="headline-pop text-red-600">おすすめです。</span>
+        </h2>
+        <p class="mt-5 text-lg md:text-2xl font-black text-slate-700">
+          「何から始めたらいいか分からない」状態からでも大丈夫です。
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="group bg-white rounded-[34px] overflow-hidden shadow-strong border border-slate-100 hover:-translate-y-2 transition duration-300">
+          <div class="h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=900&auto=format&fit=crop" class="tilt-img w-full h-full object-cover" alt="建築業">
+          </div>
+          <div class="p-6">
+            <p class="text-red-600 font-black text-sm tracking-[.2em]">CONSTRUCTION</p>
+            <h3 class="text-2xl font-black mt-2">建築・工務店</h3>
+            <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+              施工実績・職人の雰囲気・求人導線を整え、信頼感を高めます。
+            </p>
+          </div>
+        </div>
+
+        <div class="group bg-white rounded-[34px] overflow-hidden shadow-strong border border-slate-100 hover:-translate-y-2 transition duration-300">
+          <div class="h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=900&auto=format&fit=crop" class="tilt-img w-full h-full object-cover" alt="飲食店">
+          </div>
+          <div class="p-6">
+            <p class="text-orange-500 font-black text-sm tracking-[.2em]">RESTAURANT</p>
+            <h3 class="text-2xl font-black mt-2">飲食店</h3>
+            <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+              メニュー・店内POP・SNS・Googleマップ導線までまとめて強化。
+            </p>
+          </div>
+        </div>
+
+        <div class="group bg-white rounded-[34px] overflow-hidden shadow-strong border border-slate-100 hover:-translate-y-2 transition duration-300">
+          <div class="h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=900&auto=format&fit=crop" class="tilt-img w-full h-full object-cover" alt="サロン">
+          </div>
+          <div class="p-6">
+            <p class="text-pink-500 font-black text-sm tracking-[.2em]">SALON</p>
+            <h3 class="text-2xl font-black mt-2">美容・サロン</h3>
+            <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+              施術メニュー・予約導線・Instagram投稿を分かりやすく整備。
+            </p>
+          </div>
+        </div>
+
+        <div class="group bg-white rounded-[34px] overflow-hidden shadow-strong border border-slate-100 hover:-translate-y-2 transition duration-300">
+          <div class="h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=900&auto=format&fit=crop" class="tilt-img w-full h-full object-cover" alt="物流企業">
+          </div>
+          <div class="p-6">
+            <p class="text-blue-600 font-black text-sm tracking-[.2em]">LOGISTICS</p>
+            <h3 class="text-2xl font-black mt-2">物流・地域企業</h3>
+            <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+              採用・会社案内・問い合わせ導線を整え、企業としての安心感を出します。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Failure -->
+  <section class="relative py-20 md:py-28 bg-slate-950 text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_20%_20%,#ef4444,transparent_22%),radial-gradient(circle_at_80%_20%,#f59e0b,transparent_24%),radial-gradient(circle_at_50%_90%,#2563eb,transparent_25%)]"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <div class="inline-flex bg-yellow-300 text-slate-950 px-7 py-3 rounded-full font-black tracking-[.25em] shadow-xl mb-5">
+          BAD PATTERN
+        </div>
+        <h2 class="text-4xl md:text-7xl font-black leading-tight">
+          よくある失敗、<br>
+          <span class="text-yellow-300">そのままにしてませんか？</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white text-slate-950 rounded-[32px] p-7 shadow-strong">
+          <p class="text-red-600 font-black text-5xl">01</p>
+          <h3 class="text-2xl font-black mt-4">SNSを作っただけ</h3>
+          <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+            投稿が続かず、会社の魅力もサービス内容も伝わっていない。
+          </p>
+        </div>
+
+        <div class="bg-white text-slate-950 rounded-[32px] p-7 shadow-strong">
+          <p class="text-red-600 font-black text-5xl">02</p>
+          <h3 class="text-2xl font-black mt-4">HPが古いまま</h3>
+          <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+            スマホで見づらく、検索された時に信用感で損している。
+          </p>
+        </div>
+
+        <div class="bg-white text-slate-950 rounded-[32px] p-7 shadow-strong">
+          <p class="text-red-600 font-black text-5xl">03</p>
+          <h3 class="text-2xl font-black mt-4">求人が文字だけ</h3>
+          <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+            働く雰囲気や魅力が伝わらず、若い世代に刺さりにくい。
+          </p>
+        </div>
+
+        <div class="bg-white text-slate-950 rounded-[32px] p-7 shadow-strong">
+          <p class="text-red-600 font-black text-5xl">04</p>
+          <h3 class="text-2xl font-black mt-4">相談先がバラバラ</h3>
+          <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+            HP、SNS、POP、求人を別々に頼み、管理が面倒になっている。
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-10 bg-red-600 rounded-[36px] p-8 md:p-10 text-center shadow-fire">
+        <p class="text-3xl md:text-5xl font-black leading-tight">
+          だから、まとめて相談できる<br>
+          <span class="text-yellow-300">デジまかせ</span>が必要です。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Light Plan Detail -->
+  <section class="relative py-20 md:py-28 bg-white overflow-hidden">
+    <div class="absolute inset-0 dot-bg opacity-60"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <div class="inline-flex bg-green-600 text-white px-7 py-3 rounded-full font-black tracking-[.25em] shadow-xl mb-5">
+          MONTHLY 50,000
+        </div>
+        <h2 class="text-4xl md:text-7xl font-black leading-tight">
+          月5万円で<br>
+          <span class="headline-pop text-green-600">何ができるの？</span>
+        </h2>
+        <p class="mt-5 text-lg md:text-2xl font-black text-slate-700">
+          まずは必要最低限から始めて、見せ方を整えていきます。
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-[34px] p-7 shadow-strong border-2 border-green-100">
+          <p class="text-green-600 font-black text-5xl">01</p>
+          <h3 class="text-2xl font-black mt-4">HPの土台整備</h3>
+          <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+            会社紹介、サービス内容、問い合わせ導線など、最低限必要な情報を整えます。
+          </p>
+        </div>
+
+        <div class="bg-white rounded-[34px] p-7 shadow-strong border-2 border-green-100">
+          <p class="text-green-600 font-black text-5xl">02</p>
+          <h3 class="text-2xl font-black mt-4">SNS改善提案</h3>
+          <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+            何を投稿すべきか、プロフィールをどう整えるか、運用の方向性を設計します。
+          </p>
+        </div>
+
+        <div class="bg-white rounded-[34px] p-7 shadow-strong border-2 border-green-100">
+          <p class="text-green-600 font-black text-5xl">03</p>
+          <h3 class="text-2xl font-black mt-4">求人導線の見直し</h3>
+          <p class="mt-3 text-slate-600 font-bold leading-relaxed">
+            求人応募につながる見せ方、文章、導線を整え、応募前の不安を減らします。
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-10 rounded-[36px] bg-green-600 text-white p-8 md:p-10 shadow-strong grid md:grid-cols-[1fr_1.2fr] gap-6 items-center">
+        <h3 class="text-3xl md:text-5xl font-black leading-tight">
+          まずは小さく始めて、<br>
+          必要に応じて拡張。
+        </h3>
+        <p class="font-bold text-white/90 leading-loose">
+          いきなり大きな予算をかけるのではなく、今の課題に合わせて必要なところから整えていきます。HP、SNS、求人、POP、LINE導線など、状況に合わせて柔軟に対応します。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section id="contact" class="relative py-24 md:py-32 bg-gradient-to-br from-red-600 via-red-700 to-slate-950 text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_20%_20%,#f59e0b,transparent_20%),radial-gradient(circle_at_80%_20%,#ffffff,transparent_15%),radial-gradient(circle_at_50%_80%,#ef4444,transparent_20%)]"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+      <div class="inline-flex bg-yellow-300 text-slate-950 px-7 py-3 rounded-full font-black tracking-[.2em] shadow-xl mb-6">
+        FREE CONSULTATION
+      </div>
+
+      <h2 class="text-5xl md:text-8xl font-black leading-[1.05] tracking-tight drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+        まずは相談だけでも、<br>
+        <span class="text-yellow-300">大丈夫です。</span>
+      </h2>
+
+      <p class="mt-6 text-lg md:text-2xl font-bold text-white/90 leading-relaxed">
+        御社のHP・SNS・求人導線を見た上で、<br class="hidden md:block">
+        どこを直せば良いか分かりやすくご提案します。
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://lin.ee/xxxxx" class="bg-white text-red-600 font-black px-10 py-5 rounded-2xl text-lg shadow-strong hover:scale-105 transition">
+          LINEで無料相談
+        </a>
+        <a href="mailto:info@example.com" class="bg-slate-900 text-white font-black px-10 py-5 rounded-2xl text-lg border border-white/20 hover:scale-105 transition">
+          メールで相談
+        </a>
+      </div>
+
+      <p class="mt-6 text-sm text-white/70">
+        ※LINE URL・メールアドレスは差し替えてください。
+      </p>
+    </div>
+  </section>
+
+  <footer class="bg-slate-950 text-white py-8 text-center pb-24 md:pb-8">
+    <p class="font-black text-xl">デジまかせ</p>
+    <p class="text-sm text-slate-400 mt-2">Digital Support Studio by CCstudio</p>
+    <p class="text-xs text-slate-500 mt-4">© 2026 CCstudio. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
