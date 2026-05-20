@@ -103,16 +103,56 @@
 
 /* ===== Mobile only fixes ===== */
 @media(max-width:767px){
-
+  html,
   body{
+    width:100%;
+    max-width:100%;
     overflow-x:hidden;
+  }
+
+  section,
+  header,
+  footer{
+    max-width:100vw;
+    overflow-x:hidden;
+  }
+
+  /* Heroの横伸び防止 */
+  .hero-shell-mobile{
+    width:100%;
+    max-width:100%;
+    overflow:hidden;
+  }
+
+  .hero-left-mobile{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    overflow:hidden;
+    padding-bottom:120px!important;
+  }
+
+  .hero-mobile-content{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+  }
+
+  .mobile-slider-viewport{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    overflow:hidden;
+    margin-top:32px;
+    border-radius:28px;
   }
 
   .mobile-image-track{
     display:flex;
     gap:14px;
-    width:calc(220px * 12);
+    width:max-content;
     animation:mobileLoop 24s linear infinite;
+    will-change:transform;
   }
 
   .mobile-slide-img{
@@ -120,34 +160,34 @@
     height:160px;
     object-fit:cover;
     border-radius:24px;
-    flex-shrink:0;
+    flex:0 0 220px;
     box-shadow:0 10px 25px rgba(0,0,0,.12);
   }
 
   @keyframes mobileLoop{
-    from{
-      transform:translateX(0);
-    }
-    to{
-      transform:translateX(calc(-220px * 6));
-    }
+    0%{ transform:translateX(0); }
+    100%{ transform:translateX(-1404px); }
   }
 
   .mobile-hero-buttons{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    margin-top:28px;
+    display:flex!important;
+    flex-direction:column!important;
+    gap:12px!important;
+    width:100%;
+    max-width:100%;
+    margin-top:28px!important;
   }
 
   .mobile-hero-cta{
-    width:100%;
+    display:block;
+    width:100%!important;
+    max-width:100%!important;
     padding:14px 18px!important;
     font-size:15px!important;
-    line-height:1.2;
-    border-radius:999px;
+    line-height:1.2!important;
+    border-radius:999px!important;
+    flex:none!important;
   }
-
 }
 </style>
 </head>
@@ -188,14 +228,14 @@
 
 <!-- Hero -->
 <section class="relative bg-[#f8fafc] dot-bg">
-  <div class="max-w-[1600px] mx-auto grid lg:grid-cols-[1.05fr_.95fr] min-h-[86vh] relative">
+  <div class="hero-shell-mobile max-w-[1600px] mx-auto grid lg:grid-cols-[1.05fr_.95fr] min-h-[86vh] relative">
 
     <!-- LEFT -->
- <div class="relative px-6 md:px-10 lg:px-20 pt-14 md:pt-20 pb-32 flex flex-col justify-center overflow-visible">
+ <div class="hero-left-mobile relative px-6 md:px-10 lg:px-20 pt-14 md:pt-20 pb-32 flex flex-col justify-center overflow-visible md:overflow-visible">
    <div class="absolute bottom-[-60px] left-[-70px] w-[320px] h-[320px] rounded-full bg-yellow-300"></div>
      <div class="absolute bottom-[-45px] right-[-35px] w-[260px] h-[260px] rounded-full bg-orange-400"></div>
 
-      <div class="relative z-10 py-10 md:py-16 reveal-left">
+      <div class="hero-mobile-content relative z-10 py-10 md:py-16 reveal-left">
         <div class="inline-block bg-orange-500 text-white font-black px-5 py-3 rounded-2xl text-lg md:text-2xl mb-7 shadow-lg rotate-[-2deg]">
           初めての企業でも安心
         </div>
@@ -238,29 +278,26 @@
     <p class="font-black text-2xl md:text-3xl leading-tight">移行可</p>
   </div>
 </div>
-</div>
 <!-- MOBILE HERO SLIDER -->
-<div class="md:hidden mt-8 overflow-hidden">
-  
+<div class="mobile-slider-viewport md:hidden">
   <div class="mobile-image-track">
 
-    <img src="./images/hero1.jpg" class="mobile-slide-img" alt="">
-    <img src="./images/hero2.jpg" class="mobile-slide-img" alt="">
-    <img src="./images/hero3.jpg" class="mobile-slide-img" alt="">
-    <img src="./images/hero4.jpg" class="mobile-slide-img" alt="">
-    <img src="./images/hero5.jpg" class="mobile-slide-img" alt="">
-    <img src="./images/hero6.jpg" class="mobile-slide-img" alt="">
+    <img src="./images/hero1.jpg" class="mobile-slide-img">
+    <img src="./images/hero2.jpg" class="mobile-slide-img">
+    <img src="./images/hero3.jpg" class="mobile-slide-img">
+    <img src="./images/hero4.jpg" class="mobile-slide-img">
+    <img src="./images/hero5.jpg" class="mobile-slide-img">
+    <img src="./images/hero6.jpg" class="mobile-slide-img">
 
-    <!-- LOOP -->
-    <img src="./images/hero1.jpg" class="mobile-slide-img" alt="">
-    <img src="./images/hero2.jpg" class="mobile-slide-img" alt="">
-    <img src="./images/hero3.jpg" class="mobile-slide-img" alt="">
-    <img src="./images/hero4.jpg" class="mobile-slide-img" alt="">
-    <img src="./images/hero5.jpg" class="mobile-slide-img" alt="">
-    <img src="./images/hero6.jpg" class="mobile-slide-img" alt="">
+    <!-- loop -->
+    <img src="./images/hero1.jpg" class="mobile-slide-img">
+    <img src="./images/hero2.jpg" class="mobile-slide-img">
+    <img src="./images/hero3.jpg" class="mobile-slide-img">
+    <img src="./images/hero4.jpg" class="mobile-slide-img">
+    <img src="./images/hero5.jpg" class="mobile-slide-img">
+    <img src="./images/hero6.jpg" class="mobile-slide-img">
 
   </div>
-
 </div>
         <p class="mt-9 text-2xl md:text-3xl font-black text-slate-950 leading-relaxed">
           HP・SNS・求人導線を活用した<br>
